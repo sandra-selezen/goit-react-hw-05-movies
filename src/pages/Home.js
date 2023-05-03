@@ -18,12 +18,10 @@ const Home = () => {
   }, [setTrendingMovies]);
 
   return (
-    <main>
-      <div>
-        <h1>Trending today</h1>
-        <TrendingMovieItem movies={trendingMovies}  />
-      </div>
-    </main>
+    <>
+      <h1>Trending today</h1>
+      <TrendingMovieItem movies={trendingMovies}  />
+    </>
   );
 }
 
