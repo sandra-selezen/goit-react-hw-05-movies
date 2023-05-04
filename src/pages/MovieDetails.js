@@ -7,7 +7,7 @@ const MovieDetails = () => {
   return (
     <>
       <h1>MovieDetails</h1>
-      <button type="button">Back to Home</button>
+      <button type="button">Go Back</button>
     </>
   )
 }
