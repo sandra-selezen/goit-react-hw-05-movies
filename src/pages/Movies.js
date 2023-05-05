@@ -8,7 +8,7 @@ const Movies = () => {
   const query = searchParams.get("query");
 
   useEffect(() => {
-    if (query === null) return;
+    if (query === null || query === "") return;
 
     const fetchedSearchMovie = async (query) => {
       try {

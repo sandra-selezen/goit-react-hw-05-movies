@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
-import { Link, Outlet, useParams } from "react-router-dom";
+import { useEffect, useState, useRef } from "react";
+import { Link, Outlet, useParams, useLocation } from "react-router-dom";
 import { fetchMovieDetails } from "services/fetchMovieDetails";
 
 const MovieDetails = () => {
   const { movieId } = useParams();
   const [movieDetails, setMovieDetails] = useState({});
+  const location = useLocation();
+  const backLinkRef = useRef(location.state?.from ?? "/movies");
 
   useEffect(() => {
     const fetchDetails = async (id) => {
@@ -22,7 +24,7 @@ const MovieDetails = () => {
   
   return (
     <>
-      <button type="button">Go Back</button>
+      <Link to={backLinkRef.current}>Go Back</Link>
       <h1>{title}</h1>
       <p>User Score: {vote_average}%</p>
       <img src={poster_path} alt={title} />
