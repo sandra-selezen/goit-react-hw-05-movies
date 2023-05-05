@@ -1,5 +1,32 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { fetchMovieCast } from "services/fetchMovieCast";
+
 export const Cast = () => {
+  const { movieId } = useParams();
+  const [cast, setCast] = useState([]);
+
+  useEffect(() => {
+    const fetchCast = async (id) => {
+      try {
+        const fetchedCast = await fetchMovieCast(id);
+        setCast(fetchedCast);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchCast(movieId);
+  }, [movieId]);
+
   return (
-    <div>Cast</div>
+    <ul>
+      {cast.map(item => (
+        <li key={item.name}>
+          <img src={`https://image.tmdb.org/t/p/w300${item.profile_path}`} alt={item.name} />
+          <p>{item.name}</p>
+          <p>Character: {item.character}</p>
+        </li>
+      ))}
+    </ul>
   )
 }

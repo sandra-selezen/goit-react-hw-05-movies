@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, Outlet, useParams } from "react-router-dom";
 import { fetchMovieDetails } from "services/fetchMovieDetails";
 
 const MovieDetails = () => {
@@ -22,6 +22,7 @@ const MovieDetails = () => {
   
   return (
     <>
+      <button type="button">Go Back</button>
       <h1>{title}</h1>
       <p>User Score: {vote_average}%</p>
       <img src={poster_path} alt={title} />
@@ -34,7 +35,7 @@ const MovieDetails = () => {
         <li><Link to={"cast"}>Cast</Link></li>
         <li><Link to={"reviews"}>Reviews</Link></li>
       </ul>
-      <button type="button">Go Back</button>
+      <Outlet />
     </>
   )
 }
