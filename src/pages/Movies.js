@@ -1,23 +1,42 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import { fetchSearchMovie } from "services/fetchSearchMovie";
 
 const Movies = () => {
-  const [query, setQuery] = useState("");
-
+  const [serchMovie, setSearchMovie] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get("query");
+  console.log(query);
   const handleQueryChange = (event) => {
-    setQuery(event.currentTarget.value.toLowerCase());
+    setSearchParams({ query: event.target.value });
   }
 
   const onFormSubmit = (event) => {
     event.preventDefault();
+
+    const fetchedSearchMovie = async (query) => {
+      try {
+        const movies = await fetchSearchMovie(query);
+        setSearchMovie(movies);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchedSearchMovie(query);
   }
 
   return (
-    <div>
+    <>
       <form onSubmit={onFormSubmit} autoComplete="off">
         <input type="text" name="query" value={query} onChange={handleQueryChange} placeholder="Search movies"/>
         <button type="submit">Search</button>
       </form>
-    </div>
+      <ul>
+        {serchMovie.map(item => (
+          <li key={item.id}>{item.original_title}</li>
+        ))}
+      </ul>
+    </>
   );
 }
 
