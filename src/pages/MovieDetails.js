@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { fetchMovieDetails } from "services/fetchMovieDetails";
 
 const MovieDetails = () => {
@@ -29,6 +29,11 @@ const MovieDetails = () => {
       <p>{overview}</p>
       <p><b>Genres</b></p>
       <p>{movieGenres}</p>
+      <p>Additional information</p>
+      <ul>
+        <li><Link to={"cast"}>Cast</Link></li>
+        <li><Link to={"reviews"}>Reviews</Link></li>
+      </ul>
       <button type="button">Go Back</button>
     </>
   )
