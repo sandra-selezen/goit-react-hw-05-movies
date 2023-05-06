@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, Suspense } from "react";
 import { Link, Outlet, useParams, useLocation } from "react-router-dom";
 import { fetchMovieDetails } from "services/fetchMovieDetails";
 
@@ -37,7 +37,9 @@ const MovieDetails = () => {
         <li><Link to={"cast"}>Cast</Link></li>
         <li><Link to={"reviews"}>Reviews</Link></li>
       </ul>
-      <Outlet />
+      <Suspense>
+        <Outlet />
+      </Suspense>
     </>
   )
 }
