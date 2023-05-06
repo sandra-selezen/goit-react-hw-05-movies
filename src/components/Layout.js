@@ -1,22 +1,24 @@
 import { Suspense } from "react"
-import { NavLink, Outlet } from "react-router-dom"
+import { Outlet } from "react-router-dom"
+import { Container } from "./Container/Container.styled"
+import { Header, HeaderNavLink, HeaderNavList, Main } from "./Header/Header.styled"
 
 export const Layout = () => {
   return (
-    <>
-      <header>
+    <Container>
+      <Header>
         <nav>
-          <ul>
-            <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/movies">Movies</NavLink></li>
-          </ul>
+          <HeaderNavList>
+            <li><HeaderNavLink to="/">Home</HeaderNavLink></li>
+            <li><HeaderNavLink to="/movies">Movies</HeaderNavLink></li>
+          </HeaderNavList>
         </nav>
-      </header>
-      <main>
+      </Header>
+      <Main>
         <Suspense>
           <Outlet />
         </Suspense>
-      </main>
-    </>
+      </Main>
+    </Container>
   )
 }
