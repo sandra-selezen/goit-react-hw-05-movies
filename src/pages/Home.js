@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { TrendingMovieItem } from "components/TrendingMovieItem/TrendingMovieItem";
+import { MovieList } from "components/MovieList/MovieList";
 import { fetchTrendingMovies } from "services/fetchTrendingMovies";
 
 const Home = () => {
@@ -20,7 +20,7 @@ const Home = () => {
   return (
     <>
       <h1>Trending today</h1>
-      <TrendingMovieItem movies={trendingMovies} />
+      <MovieList movies={trendingMovies} />
     </>
   );
 }
