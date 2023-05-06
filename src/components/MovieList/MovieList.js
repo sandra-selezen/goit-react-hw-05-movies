@@ -1,14 +1,15 @@
 import PropTypes from 'prop-types';
 import { MovieItem } from './MovieItem';
+import { List } from './MovieList.styled';
 
 export const MovieList = ({ movies }) => {
 
   return (
-    <ul>
+    <List>
       {movies.map(movie => (
         <MovieItem key={movie.id} movie={movie} />
       ))}
-    </ul>
+    </List>
   )
 }
 
