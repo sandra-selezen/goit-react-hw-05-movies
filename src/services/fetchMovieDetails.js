@@ -9,7 +9,7 @@ export const fetchMovieDetails = async (id) => {
   const movieInfo = {
     title,
     overview,
-    poster_path: `https://image.tmdb.org/t/p/w300${poster_path}`,
+    poster_path,
     movieGenres,
     vote_average: (vote_average * 10).toFixed(),
   }

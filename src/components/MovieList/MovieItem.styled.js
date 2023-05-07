@@ -39,7 +39,7 @@ export const ItemImage = styled.img`
 `;
 
 export const ItemTitle = styled.h2`
-  margin: 12px 0;
+  margin: 12px 8px;
   font-size: 1.25rem;
   font-weight: 400;
 

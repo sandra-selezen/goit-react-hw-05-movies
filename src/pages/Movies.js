@@ -4,6 +4,7 @@ import { fetchSearchMovie } from "services/fetchSearchMovie";
 import { SearchForm } from "components/SearchForm/SearchForm";
 import { List } from "components/MovieList/MovieList.styled";
 import { Item, ItemImage, ItemTitle } from "components/MovieList/MovieItem.styled";
+import NoPosterDetails from "../images/no-poster.png";
 
 const Movies = () => {
   const [serchMovie, setSearchMovie] = useState([]);
@@ -44,7 +45,9 @@ const Movies = () => {
         {serchMovie.map(item => (
           <Item key={item.id}>
             <Link to={`/movies/${item.id}`} state={{ from: location }}>
-              <ItemImage src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt={item.title} />
+              {item.poster_path
+                ? <ItemImage src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt={item.title} />
+                : <ItemImage src={NoPosterDetails} alt={item.title} />}
               <ItemTitle>{item.title}</ItemTitle>
             </Link>
           </Item>

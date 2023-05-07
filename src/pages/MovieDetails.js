@@ -2,6 +2,7 @@ import { useEffect, useState, useRef, Suspense } from "react";
 import { Outlet, useParams, useLocation } from "react-router-dom";
 import { fetchMovieDetails } from "services/fetchMovieDetails";
 import { DetailsImg, DetailsItem, DetailsList, GoBackBtn, MovieText, MovieSubtitle, MovieTitle, Wrapper, InfoList, InfoLink } from "components/MovieDetails/MovieDetails.styled";
+import NoPoster from "../images/no-poster.png";
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -29,7 +30,9 @@ const MovieDetails = () => {
       <Wrapper>
         <DetailsList>
           <DetailsItem>
-            <DetailsImg src={poster_path} alt={title} />
+            {poster_path
+              ? <DetailsImg src={`https://image.tmdb.org/t/p/w300${poster_path}`} alt={title} />
+              : <DetailsImg src={NoPoster} alt={title} />}
           </DetailsItem>
           <DetailsItem>
             <MovieTitle>{title}</MovieTitle>

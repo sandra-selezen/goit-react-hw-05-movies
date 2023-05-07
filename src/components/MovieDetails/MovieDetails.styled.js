@@ -2,8 +2,11 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const GoBackBtn = styled(Link)`
-  display: inline-block;
+  display: block;
+  width: 60px;
+  margin: 0 auto;
   padding: 4px 8px;
+  text-align: center;
   border-radius: 5px;
   background: linear-gradient(90deg, hsl(277, 56%, 68%) 0%, hsl(203, 71%, 60%) 100%);
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
