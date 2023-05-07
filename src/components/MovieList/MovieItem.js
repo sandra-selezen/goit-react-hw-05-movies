@@ -1,16 +1,17 @@
 import PropTypes from 'prop-types';
 import { Link, useLocation } from "react-router-dom";
+import { Item, ItemImage, ItemTitle } from './MovieItem.styled';
 
 export const MovieItem = ({ movie }) => {
   const location = useLocation();
 
   return (
-    <li>
+    <Item>
       <Link to={`movies/${movie.id}`} state={{ from: location }}>
-        <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title}/>
-        <h3>{movie.title}</h3>
+        <ItemImage src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title}/>
+        <ItemTitle>{movie.title}</ItemTitle>
       </Link>
-    </li>
+    </Item>
   )
 }
 
