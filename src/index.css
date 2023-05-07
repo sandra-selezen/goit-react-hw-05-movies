@@ -6,6 +6,8 @@ body {
   margin: 0;
   color: hsl(203, 8%, 98%);
   background-color: hsl(259, 20%, 18%);
+  /* background-color: hsl(258, 19%, 14%); */
+
 }
 
 h1, h2, h3, p {

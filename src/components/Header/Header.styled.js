@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export const Header = styled.header`
   padding-top: 24px;
   padding-bottom: 24px;
+  background-color: hsl(258, 19%, 14%);
 `;
 
 export const HeaderNavList = styled.ul`
@@ -37,4 +38,18 @@ export const HeaderNavLink = styled(NavLink)`
 export const Main = styled.main`
   margin: 0 auto;
   padding: 32px 0;
+`;
+
+export const Footer = styled.footer`
+  padding-top: 24px;
+  padding-bottom: 24px;
+  text-align: center;
+  background-color: hsl(258, 19%, 14%);
+`;
+
+export const FooterLink = styled.a`
+  font-weight: 600;
+  background: linear-gradient(90deg, hsl(277, 56%, 68%) 0%, hsl(203, 71%, 60%) 100%);
+  -webkit-background-clip: text;
+  color: transparent;
 `;
