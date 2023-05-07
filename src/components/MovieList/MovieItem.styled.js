@@ -2,13 +2,20 @@ import styled from "styled-components";
 
 export const Item = styled.li`
   border-radius: 5px;
-
+  transform: scale(1);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+              transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   @media screen and (min-width: 768px) {
     flex-basis: calc((100% - 96px) / 3);
   }
 
   @media screen and (min-width: 1280px) {
     flex-basis: calc((100% - 96px) / 3);
+  }
+
+  :hover {
+    box-shadow: 0px -1px 33px rgba(81, 170, 255, 0.5);
+    transform: scale(1.03);
   }
 `;
 
