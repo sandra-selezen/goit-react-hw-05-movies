@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
-import { Form } from './SearchForm.styled';
+import { Button, Form, Input } from './SearchForm.styled';
+import { FaSearch } from 'react-icons/fa';
 
 export const SearchForm = ({ onSubmit }) => {
   return (
     <Form onSubmit={onSubmit} autoComplete="off">
-      <input type="text" name="query" placeholder="Search movies"/>
-      <button type="submit">Search</button>
+      <Input type="text" name="query" placeholder="Search movies"/>
+      <Button type="submit" aria-label="Search"><FaSearch /></Button>
     </Form>
   );
 }
@@ -13,3 +14,4 @@ export const SearchForm = ({ onSubmit }) => {
 SearchForm.propTypes = {
   onSubmit: PropTypes.func,
 }
+
