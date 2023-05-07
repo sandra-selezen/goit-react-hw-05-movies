@@ -36,4 +36,5 @@ export const HeaderNavLink = styled(NavLink)`
 
 export const Main = styled.main`
   margin: 0 auto;
+  padding: 32px 0;
 `;

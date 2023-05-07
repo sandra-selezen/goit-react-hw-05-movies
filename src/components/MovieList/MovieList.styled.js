@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const MainTitle = styled.h1`
-  margin: 24px 0;
+  margin-bottom: 24px;
   font-size: 2.25rem;
   font-weight: 700;
   text-align: center;
@@ -12,7 +12,7 @@ export const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  
+
   @media screen and (max-width: 767px) {
     gap: 16px;
   }
