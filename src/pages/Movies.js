@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useSearchParams, useLocation } from "react-router-dom";
 import { fetchSearchMovie } from "services/fetchSearchMovie";
+import { SearchForm } from "components/SearchForm/SearchForm";
+import { List } from "components/MovieList/MovieList.styled";
+import { Item, ItemImage, ItemTitle } from "components/MovieList/MovieItem.styled";
 
 const Movies = () => {
   const [serchMovie, setSearchMovie] = useState([]);
@@ -36,15 +39,17 @@ const Movies = () => {
 
   return (
     <>
-      <form onSubmit={onFormSubmit} autoComplete="off">
-        <input type="text" name="query" placeholder="Search movies"/>
-        <button type="submit">Search</button>
-      </form>
-      <ul>
+      <SearchForm onSubmit={onFormSubmit} />
+      <List>
         {serchMovie.map(item => (
-          <li key={item.id}><Link to={`/movies/${item.id}`} state={{ from: location }}>{item.title}</Link></li>
+          <Item key={item.id}>
+            <Link to={`/movies/${item.id}`} state={{ from: location }}>
+              <ItemImage src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt={item.title} />
+              <ItemTitle>{item.title}</ItemTitle>
+            </Link>
+          </Item>
         ))}
-      </ul>
+      </List>
     </>
   );
 }
