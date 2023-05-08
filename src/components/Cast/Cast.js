@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchMovieCast } from "services/fetchMovieCast";
 import { Image, Item, List, Title } from "./Cast.styled";
+import PlaceholderImage from "../../images/placeholder-profile-photo.jpg";
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -23,7 +24,9 @@ const Cast = () => {
     <List>
       {cast.map(item => (
         <Item key={item.id}>
-          <Image src={`https://image.tmdb.org/t/p/w300${item.profile_path}`} alt={item.name} />
+          {item.profile_path
+            ? <Image src={`https://image.tmdb.org/t/p/w300${item.profile_path}`} alt={item.name} />
+            : <Image src={PlaceholderImage} alt={item.name} />}
           <Title>{item.name}</Title>
           <Title>Character: {item.character}</Title>
         </Item>
