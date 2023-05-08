@@ -15,8 +15,10 @@ export const Item = styled.li`
 
 export const Image = styled.img`
   width: 180px;
+  margin-bottom: 8px;
+  border-radius: 5px;
 `;
 
 export const Title = styled.p`
-  width: 100px;
+  width: 140px;
 `;
