@@ -1,4 +1,5 @@
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
+import { toast } from 'react-hot-toast';
 import { useEffect, useState } from "react";
 import { Link, useSearchParams, useLocation } from "react-router-dom";
 import { fetchSearchMovie } from "services/fetchSearchMovie";
@@ -35,6 +36,7 @@ const Movies = () => {
 
     const form = event.currentTarget;
     if (form.elements.query.value === "") {
+      toast('Please enter search word!', { icon: '🦄', });
       return setSearchParams({});
     }
 

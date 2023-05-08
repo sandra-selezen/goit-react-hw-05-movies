@@ -1,3 +1,4 @@
+import { Toaster } from 'react-hot-toast';
 import { Suspense } from "react"
 import { Outlet } from "react-router-dom"
 import { Container } from "./Container/Container.styled"
@@ -28,6 +29,7 @@ export const Layout = () => {
           <p>&#169; 2023 | All Rights Reserved | Developed with 💙💛 by <FooterLink href="https://www.linkedin.com/in/aleksandra-selezen/" target="_blank" rel="noreferrer">Sandra Selezen</FooterLink></p>
         </Container>
       </Footer>
+      <Toaster position="top-rightr" />
     </>
   )
 }
