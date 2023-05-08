@@ -1,3 +1,4 @@
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { useEffect, useState } from "react";
 import { Link, useSearchParams, useLocation } from "react-router-dom";
 import { fetchSearchMovie } from "services/fetchSearchMovie";
@@ -17,10 +18,13 @@ const Movies = () => {
 
     const fetchedSearchMovie = async (query) => {
       try {
+        Loading.circle();
         const movies = await fetchSearchMovie(query);
         setSearchMovie(movies);
       } catch (error) {
         console.log(error);
+      } finally {
+        Loading.remove();
       }
     }
     fetchedSearchMovie(query);

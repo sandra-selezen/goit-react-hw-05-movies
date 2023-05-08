@@ -1,3 +1,4 @@
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchMovieCast } from "services/fetchMovieCast";
@@ -11,10 +12,13 @@ const Cast = () => {
   useEffect(() => {
     const fetchCast = async (id) => {
       try {
+        Loading.circle();
         const fetchedCast = await fetchMovieCast(id);
         setCast(fetchedCast);
       } catch (error) {
         console.log(error);
+      } finally {
+        Loading.remove();
       }
     }
     fetchCast(movieId);

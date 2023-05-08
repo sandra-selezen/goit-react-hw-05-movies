@@ -1,3 +1,4 @@
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { useState, useEffect } from "react";
 import { MovieList } from "components/MovieList/MovieList";
 import { fetchTrendingMovies } from "services/fetchTrendingMovies";
@@ -9,10 +10,13 @@ const Home = () => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
+        Loading.circle();
         const fetchedMovies = await fetchTrendingMovies();
         setTrendingMovies(fetchedMovies);
       } catch (error) {
         console.log(error);
+      } finally {
+        Loading.remove();
       }
     }
     fetchMovies();
