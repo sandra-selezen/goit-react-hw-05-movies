@@ -2,7 +2,7 @@ import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchMovieReviews } from "services/fetchMovieReviews";
-import { AuthorName, List } from "./Reviews.styled";
+import { AuthorName, List, NoReviewText } from "./Reviews.styled";
 
 const Reviews = () => {
   const { movieId } = useParams();
@@ -35,7 +35,7 @@ const Reviews = () => {
       ))}
         </List>
       )
-      : <div><p>We don't have any reviews for this movie 🥺</p></div>}
+      : <NoReviewText><p>We don't have any reviews for this movie 🥺</p></NoReviewText>}
     </>
   )
 }
